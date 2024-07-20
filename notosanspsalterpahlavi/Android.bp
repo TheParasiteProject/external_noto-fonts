@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSansPsalterPahlavi-Regular.ttf",
+    src: "NotoSansPsalterPahlavi-Regular.ttf",
+}

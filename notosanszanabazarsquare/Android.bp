@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSansZanabazarSquare-Regular.ttf",
+    src: "NotoSansZanabazarSquare-Regular.ttf",
+}

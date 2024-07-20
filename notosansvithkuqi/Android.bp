@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSansVithkuqi-Regular.ttf",
+    src: "NotoSansVithkuqi-Regular.ttf",
+}
