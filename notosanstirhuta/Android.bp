@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSansTirhuta-Regular.ttf",
+    src: "NotoSansTirhuta-Regular.ttf",
+}

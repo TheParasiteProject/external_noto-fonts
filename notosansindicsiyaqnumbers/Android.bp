@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSansIndicSiyaqNumbers-Regular.ttf",
+    src: "NotoSansIndicSiyaqNumbers-Regular.ttf",
+}

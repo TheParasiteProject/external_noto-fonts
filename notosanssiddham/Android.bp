@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSansSiddham-Regular.ttf",
+    src: "NotoSansSiddham-Regular.ttf",
+}

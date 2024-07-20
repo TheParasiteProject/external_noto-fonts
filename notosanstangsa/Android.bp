@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSansTangsa-Regular.ttf",
+    src: "NotoSansTangsa-Regular.ttf",
+}

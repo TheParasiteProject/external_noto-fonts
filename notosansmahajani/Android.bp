@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSansMahajani-Regular.ttf",
+    src: "NotoSansMahajani-Regular.ttf",
+}

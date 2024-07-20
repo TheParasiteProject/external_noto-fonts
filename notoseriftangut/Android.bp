@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSerifTangut-Regular.ttf",
+    src: "NotoSerifTangut-Regular.ttf",
+}

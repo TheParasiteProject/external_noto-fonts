@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSansOldHungarian-Regular.ttf",
+    src: "NotoSansOldHungarian-Regular.ttf",
+}

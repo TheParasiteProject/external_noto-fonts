@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSansTamilSupplement-Regular.ttf",
+    src: "NotoSansTamilSupplement-Regular.ttf",
+}

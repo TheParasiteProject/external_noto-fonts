@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSansSignWriting-Regular.ttf",
+    src: "NotoSansSignWriting-Regular.ttf",
+}

@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSansMendeKikakui-Regular.ttf",
+    src: "NotoSansMendeKikakui-Regular.ttf",
+}

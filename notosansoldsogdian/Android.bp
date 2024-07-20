@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSansOldSogdian-Regular.ttf",
+    src: "NotoSansOldSogdian-Regular.ttf",
+}
