@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSansKhudawadi-Regular.ttf",
+    src: "NotoSansKhudawadi-Regular.ttf",
+}

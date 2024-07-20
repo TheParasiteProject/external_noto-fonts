@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSansCaucasianAlbanian-Regular.ttf",
+    src: "NotoSansCaucasianAlbanian-Regular.ttf",
+}

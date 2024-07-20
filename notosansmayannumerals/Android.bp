@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSansMayanNumerals-Regular.ttf",
+    src: "NotoSansMayanNumerals-Regular.ttf",
+}

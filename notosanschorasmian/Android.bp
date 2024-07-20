@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSansChorasmian-Regular.ttf",
+    src: "NotoSansChorasmian-Regular.ttf",
+}
