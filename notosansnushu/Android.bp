@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSansNushu-Regular.ttf",
+    src: "NotoSansNushu-Regular.ttf",
+}

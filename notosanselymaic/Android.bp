@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSansElymaic-Regular.ttf",
+    src: "NotoSansElymaic-Regular.ttf",
+}

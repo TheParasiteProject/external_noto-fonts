@@ -1,0 +1,4 @@
+prebuilt_font {
+    name: "NotoSerifToto-Regular.ttf",
+    src: "NotoSerifToto-Regular.ttf",
+}
