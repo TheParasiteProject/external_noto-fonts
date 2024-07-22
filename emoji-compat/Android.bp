@@ -53,7 +53,7 @@ prebuilt_versioned_font {
     },
     fontFile: "Noto-COLRv1-noflags.ttf",
     versionFlag: "RELEASE_PACKAGE_EMOJI_FONT_VERSION",
-    defaultVersion: "2.047",
+    defaultVersion: "2.051",
 }
 
 prebuilt_versioned_font {
@@ -63,15 +63,20 @@ prebuilt_versioned_font {
     },
     fontFile: "NotoColorEmoji-flagsonly.ttf",
     versionFlag: "RELEASE_PACKAGE_EMOJI_FONT_VERSION",
-    defaultVersion: "2.047",
+    defaultVersion: "2.051",
 }
 
 prebuilt_font {
     name: "NotoColorEmojiLegacy.ttf",
-    src: "font/2.047/NotoColorEmoji-noflags.ttf",
+    src: "font/2.051/NotoColorEmoji-noflags.ttf",
     dist: {
         targets: ["droidcore"],
     },
+}
+
+prebuilt_font {
+    name: "NotoColorEmojiAddon.ttf",
+    src: "font/2.051/NotoColorEmoji.ttf",
 }
 
 android_test {
