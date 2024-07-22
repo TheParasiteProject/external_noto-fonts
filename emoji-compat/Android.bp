@@ -98,6 +98,11 @@ prebuilt_font {
     },
 }
 
+prebuilt_font {
+    name: "NotoColorEmojiAddon.ttf",
+    src: "font/NotoColorEmojiAddon.ttf",
+}
+
 android_test {
     name: "EmojiCompatTest",
 
