@@ -47,17 +47,20 @@ license {
 
 prebuilt_font {
     name: "NotoSansOriya-Bold.ttf",
-    src: "NotoSansOriya-Bold.ttf",
+    src: "font/1.010/NotoSansOriya-Bold.ttf",
 }
 
-prebuilt_font {
+prebuilt_versioned_font {
     name: "NotoSansOriya-Regular.ttf",
-    src: "NotoSansOriya-Regular.ttf",
+    fontFile: "NotoSansOriya.ttf",
+    versionFlag: "RELEASE_PACKAGE_NOTO_SANS_ORIYA_VERSION",
+    defaultVersion: "1.010",
 }
 
-filegroup {
+versioned_font_config {
     name: "NotoSansOriya",
-    srcs: ["font_config.json"],
+    defaultVersion: "1.010",
+    versionFlag: "RELEASE_PACKAGE_NOTO_SANS_ORIYA_VERSION",
     required: [
         "NotoSansOriya-Bold.ttf",
         "NotoSansOriya-Regular.ttf",
