@@ -47,17 +47,19 @@ license {
 
 prebuilt_font {
     name: "NotoSerifLao-Bold.ttf",
-    src: "NotoSerifLao-Bold.ttf",
+    src: "font/2.000/NotoSerifLao-Bold.ttf",
 }
 
-prebuilt_font {
+prebuilt_versioned_font {
     name: "NotoSerifLao-Regular.ttf",
-    src: "NotoSerifLao-Regular.ttf",
+    versionFlag: "RELEASE_PACKAGE_NOTO_SERIF_LAO_VERSION",
+    defaultVersion: "2.000",
 }
 
-filegroup {
+versioned_font_config {
     name: "NotoSerifLao",
-    srcs: ["font_config.json"],
+    versionFlag: "RELEASE_PACKAGE_NOTO_SERIF_LAO_VERSION",
+    defaultVersion: "2.000",
     required: [
         "NotoSerifLao-Bold.ttf",
         "NotoSerifLao-Regular.ttf",
