@@ -1,0 +1,14 @@
+[
+    {
+        "lang": "und-Hebr",
+        "fonts": [
+            {
+                "file": "NotoSerifHebrew-Regular.ttf",
+                "supportedAxes": "wght",
+                "style": "normal"
+            }
+        ],
+        "fallbackFor": "serif",
+        "target": "NotoSansHebrew_und-Hebr"
+    }
+]
