@@ -1,0 +1,15 @@
+[
+    {
+        "lang": "und-Thai",
+        "variant": "elegant",
+        "fonts": [
+            {
+                "file": "NotoSerifThai-Regular.ttf",
+                "supportedAxes": "wght",
+                "style": "normal"
+            }
+        ],
+        "fallbackFor": "serif",
+        "target": "NotoSansThai_und-Thai"
+    }
+]
