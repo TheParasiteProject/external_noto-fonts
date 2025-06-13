@@ -45,19 +45,21 @@ license {
     ],
 }
 
-prebuilt_font {
+prebuilt_versioned_font {
     name: "NotoSerifKhmer-Regular.otf",
-    src: "NotoSerifKhmer-Regular.otf",
+    versionFlag: "RELEASE_PACKAGE_NOTO_SERIF_KHMER_VERSION",
+    defaultVersion: "2.001",
 }
 
 prebuilt_font {
     name: "NotoSerifKhmer-Bold.otf",
-    src: "NotoSerifKhmer-Bold.otf",
+    src: "font/2.001/NotoSerifKhmer-Bold.otf",
 }
 
-filegroup {
+versioned_font_config {
     name: "NotoSerifKhmer",
-    srcs: ["font_config.json"],
+    versionFlag: "RELEASE_PACKAGE_NOTO_SERIF_KHMER_VERSION",
+    defaultVersion: "2.001",
     required: [
         "NotoSerifKhmer-Regular.otf",
         "NotoSerifKhmer-Bold.otf",

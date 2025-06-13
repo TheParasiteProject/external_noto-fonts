@@ -1,0 +1,15 @@
+[
+    {
+        "lang": "und-Khmr",
+        "variant": "elegant",
+        "fonts": [
+            {
+                "file": "NotoSerifKhmer-Regular.otf",
+                "supportedAxes": "wght",
+                "style": "normal"
+            }
+        ],
+        "fallbackFor": "serif",
+        "target": "NotoSansKhmer-VF_und-Khmr"
+    }
+]
