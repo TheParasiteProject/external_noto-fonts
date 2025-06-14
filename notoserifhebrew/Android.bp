@@ -46,18 +46,20 @@ license {
 }
 
 prebuilt_font {
-    name: "NotoSerifHebrew-Regular.ttf",
-    src: "NotoSerifHebrew-Regular.ttf",
-}
-
-prebuilt_font {
     name: "NotoSerifHebrew-Bold.ttf",
-    src: "NotoSerifHebrew-Bold.ttf",
+    src: "font/2.002/NotoSerifHebrew-Bold.ttf",
 }
 
-filegroup {
+prebuilt_versioned_font {
+    name: "NotoSerifHebrew-Regular.ttf",
+    versionFlag: "RELEASE_PACKAGE_NOTO_SERIF_HEBREW_VERSION",
+    defaultVersion: "2.002",
+}
+
+versioned_font_config {
     name: "NotoSerifHebrew",
-    srcs: ["font_config.json"],
+    defaultVersion: "2.002",
+    versionFlag: "RELEASE_PACKAGE_NOTO_SERIF_HEBREW_VERSION",
     required: [
         "NotoSerifHebrew-Regular.ttf",
         "NotoSerifHebrew-Bold.ttf",

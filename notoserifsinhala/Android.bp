@@ -45,9 +45,11 @@ license {
     ],
 }
 
-prebuilt_font {
+prebuilt_versioned_font {
     name: "NotoSerifSinhala-VF.ttf",
-    src: "NotoSerifSinhala-VF.ttf",
+    fontFile: "NotoSerifSinhala-Regular.ttf",
+    versionFlag: "RELEASE_PACKAGE_NOTO_SERIF_SINHALA_VERSION",
+    defaultVersion: "2.002",
 }
 
 filegroup {
