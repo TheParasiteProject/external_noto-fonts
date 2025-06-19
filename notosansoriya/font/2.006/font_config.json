@@ -1,0 +1,13 @@
+[
+    {
+        "lang": "und-Orya",
+        "variant": "elegant",
+        "fonts": [
+            {
+                "file": "NotoSansOriya-Regular.ttf",
+                "supportedAxes": "wght",
+                "style": "normal"
+            }
+        ]
+    }
+]
