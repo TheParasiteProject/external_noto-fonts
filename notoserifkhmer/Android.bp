@@ -49,6 +49,16 @@ prebuilt_versioned_font {
     name: "NotoSerifKhmer-Regular.otf",
     versionFlag: "RELEASE_PACKAGE_NOTO_SERIF_KHMER_VERSION",
     defaultVersion: "2.001",
+    override: [
+        {
+            version: "2.001",
+            fontFile: "NotoSerifKhmer-Regular.otf",
+        },
+        {
+            version: "2.004",
+            fontFile: "NotoSerifKhmer-Regular.ttf",
+        },
+    ],
 }
 
 prebuilt_font {

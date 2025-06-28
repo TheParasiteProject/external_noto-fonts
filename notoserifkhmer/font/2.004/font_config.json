@@ -4,7 +4,7 @@
         "variant": "elegant",
         "fonts": [
             {
-                "file": "NotoSerifKhmer-Regular.otf",
+                "file": "NotoSerifKhmer-Regular.ttf",
                 "supportedAxes": "wght",
                 "style": "normal"
             }

@@ -4,7 +4,24 @@ import (
   "fmt"
   prebuilt_etc "android/soong/etc"
   "os"
+  "github.com/google/blueprint/proptools"
 )
+
+type overrideProperties struct {
+  // A version sring that overrides the properties.
+  Version string
+
+  // A font file to be override. For example, a font file has changed from ttf to otf in version 2.0,
+  // it can be written as follows.
+  // override [{
+  //   version: "1.900",
+  //   fontFile: "SomeFontFile.ttf",
+  // },{
+  //   version: "2.000",
+  //   fontFile: "SomeFontFile.otf",
+  // }]
+  FontFile string
+}
 
 type fontProperties struct {
   // An optional font file of the versioned font files.
@@ -20,6 +37,9 @@ type fontProperties struct {
 
   // A mandatory version string used for environment that does not have build flags, e.g. SDK build.
   DefaultVersion string
+
+  // An optional override properties.
+  Override []overrideProperties
 }
 
 type configProperties struct {
@@ -36,6 +56,9 @@ type configProperties struct {
 
   // A mandatory version string used for environment that does not have build flags, e.g. SDK build.
   DefaultVersion string
+
+  // An optional override properties.
+  Override []overrideProperties
 }
 
 func init() {
@@ -57,10 +80,15 @@ func prebuiltVersionedFontFactory() (android.Module) {
 func prebuiltVersionFont(ctx android.LoadHookContext) {
   // Find fontProperties propery from the property list.
   var fontProp *fontProperties
+  var etcProp *prebuilt_etc.PrebuiltEtcProperties
   for _, p := range ctx.Module().GetProperties() {
       _fontProp, ok := p.(*fontProperties)
       if ok {
         fontProp = _fontProp
+      }
+      _etcProp, ok := p.(*prebuilt_etc.PrebuiltEtcProperties)
+      if ok {
+        etcProp = _etcProp
       }
   }
 
@@ -88,6 +116,21 @@ func prebuiltVersionFont(ctx android.LoadHookContext) {
   if len(fontProp.FontFile) == 0 {
     fontProp.FontFile = ctx.Module().Name()
   }
+
+  var override *overrideProperties = nil
+  for _, p := range fontProp.Override {
+    if p.Version == version {
+      override = &p
+    }
+  }
+
+  if override != nil {
+    if len(override.FontFile) != 0 {
+      fontProp.FontFile = override.FontFile
+      etcProp.Filename_from_src = proptools.BoolPtr(true)
+    }
+  }
+
 
   // Override the src property with newly generated one.
   type props struct {
