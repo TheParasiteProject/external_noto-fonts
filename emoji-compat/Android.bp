@@ -62,7 +62,7 @@ prebuilt_versioned_font {
         targets: ["droidcore"],
     },
     fontFile: "NotoColorEmoji-flagsonly.ttf",
-    versionFlag: "RELEASE_PACKAGE_EMOJI_FONT_VERSION",
+    versionFlag: "RELEASE_PACKAGE_FLAG_EMOJI_FONT_VERSION",
     defaultVersion: "2.047",
 }
 
