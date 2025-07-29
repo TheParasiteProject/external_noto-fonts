@@ -50,10 +50,13 @@ prebuilt_font {
     src: "font/2.001/NotoSansMyanmar-Medium.otf",
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoSansMyanmar-Regular.otf",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SANS_MYANMAR_VERSION",
-    defaultVersion: "2.001",
+    src: select(release_flag("RELEASE_PACKAGE_NOTO_SANS_MYANMAR_VERSION"), {
+        "2.001": "font/2.001/NotoSansMyanmar-Regular.otf",
+        "2.107": "font/2.107/NotoSansMyanmar-Regular.otf",
+        default: "font/2.001/NotoSansMyanmar-Regular.otf",
+    }),
 }
 
 prebuilt_font {
@@ -61,13 +64,16 @@ prebuilt_font {
     src: "font/2.001/NotoSansMyanmar-Bold.otf",
 }
 
-versioned_font_config {
+filegroup {
     name: "NotoSansMyanmar",
     required: [
         "NotoSansMyanmar-Regular.otf",
         "NotoSansMyanmar-Medium.otf",
         "NotoSansMyanmar-Bold.otf",
     ],
-    versionFlag: "RELEASE_PACKAGE_NOTO_SANS_MYANMAR_VERSION",
-    defaultVersion: "2.001",
+    srcs: select(release_flag("RELEASE_PACKAGE_NOTO_SANS_MYANMAR_VERSION"), {
+        "2.001": ["font/2.001/font_config.json"],
+        "2.107": ["font/2.107/font_config.json"],
+        default: ["font/2.001/font_config.json"],
+    }),
 }

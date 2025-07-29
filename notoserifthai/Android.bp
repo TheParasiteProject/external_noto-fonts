@@ -45,10 +45,13 @@ license {
     ],
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoSerifThai-Regular.ttf",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SERIF_THAI_VERSION",
-    defaultVersion: "2.000",
+    src: select(release_flag("RELEASE_PACKAGE_NOTO_SERIF_THAI_VERSION"), {
+        "2.000": "font/2.000/NotoSerifThai-Regular.ttf",
+        "2.002": "font/2.002/NotoSerifThai-Regular.ttf",
+        default: "font/2.000/NotoSerifThai-Regular.ttf",
+    }),
 }
 
 prebuilt_font {
@@ -56,12 +59,15 @@ prebuilt_font {
     src: "font/2.000/NotoSerifThai-Bold.ttf",
 }
 
-versioned_font_config {
+filegroup {
     name: "NotoSerifThai",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SERIF_THAI_VERSION",
-    defaultVersion: "2.000",
     required: [
         "NotoSerifThai-Bold.ttf",
         "NotoSerifThai-Regular.ttf",
     ],
+    srcs: select(release_flag("RELEASE_PACKAGE_NOTO_SERIF_THAI_VERSION"), {
+        "2.000": ["font/2.000/font_config.json"],
+        "2.002": ["font/2.002/font_config.json"],
+        default: ["font/2.000/font_config.json"],
+    }),
 }

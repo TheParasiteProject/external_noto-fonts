@@ -45,11 +45,13 @@ license {
     ],
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoSansMalayalamUI-VF.ttf",
-    fontFile: "NotoSansMalayalamUI-Regular.ttf",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SANS_MALAYALAM_UI_VERSION",
-    defaultVersion: "2.103",
+    src: select(release_flag("RELEASE_PACKAGE_NOTO_SANS_MALAYALAM_UI_VERSION"), {
+        "2.103": "font/2.103/NotoSansMalayalamUI-Regular.ttf",
+        "2.104": "font/2.104/NotoSansMalayalamUI-Regular.ttf",
+        default: "font/2.103/NotoSansMalayalamUI-Regular.ttf",
+    }),
 }
 
 filegroup {

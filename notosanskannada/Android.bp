@@ -45,11 +45,13 @@ license {
     ],
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoSansKannada-VF.ttf",
-    fontFile: "NotoSansKannada-Regular.ttf",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SANS_KANNADA_VERSION",
-    defaultVersion: "2.001",
+    src: select(release_flag("RELEASE_PACKAGE_NOTO_SANS_KANNADA_VERSION"), {
+        "2.001": "font/2.001/NotoSansKannada-Regular.ttf",
+        "2.006": "font/2.006/NotoSansKannada-Regular.ttf",
+        default: "font/2.001/NotoSansKannada-Regular.ttf",
+    }),
 }
 
 filegroup {

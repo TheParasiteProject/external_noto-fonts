@@ -45,27 +45,33 @@ license {
     ],
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoSansHebrew-Regular.ttf",
-    versionDir: ".",
-    versionFlag: "RELEASE_PACKAGE_HEBREW_FONT_VERSION",
-    defaultVersion: "1.04",
+    src: select(release_flag("RELEASE_PACKAGE_HEBREW_FONT_VERSION"), {
+        "1.040": "font/1.040/NotoSansHebrew-Regular.ttf",
+        "3.001": "font/3.001/NotoSansHebrew-Regular.ttf",
+        default: "font/1.040/NotoSansHebrew-Regular.ttf",
+    }),
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoSansHebrew-Bold.ttf",
-    versionDir: ".",
-    versionFlag: "RELEASE_PACKAGE_HEBREW_FONT_VERSION",
-    defaultVersion: "1.04",
+    src: select(release_flag("RELEASE_PACKAGE_HEBREW_FONT_VERSION"), {
+        "1.040": "font/1.040/NotoSansHebrew-Bold.ttf",
+        "3.001": "font/3.001/NotoSansHebrew-Bold.ttf",
+        default: "font/1.040/NotoSansHebrew-Bold.ttf",
+    }),
 }
 
-versioned_font_config {
+filegroup {
     name: "NotoSansHebrew",
     required: [
         "NotoSansHebrew-Bold.ttf",
         "NotoSansHebrew-Regular.ttf",
     ],
-    versionDir: ".",
-    versionFlag: "RELEASE_PACKAGE_HEBREW_FONT_VERSION",
-    defaultVersion: "1.04",
+    srcs: select(release_flag("RELEASE_PACKAGE_HEBREW_FONT_VERSION"), {
+        "1.040": ["font/1.040/font_config.json"],
+        "3.001": ["font/3.001/font_config.json"],
+        default: ["font/1.040/font_config.json"],
+    }),
 }

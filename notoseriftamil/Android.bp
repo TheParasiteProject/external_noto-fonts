@@ -45,11 +45,13 @@ license {
     ],
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoSerifTamil-VF.ttf",
-    fontFile: "NotoSerifTamil-Regular.ttf",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SERIF_TAMIL_VERSION",
-    defaultVersion: "2.001",
+    src: select(release_flag("RELEASE_PACKAGE_NOTO_SERIF_TAMIL_VERSION"), {
+        "2.001": "font/2.001/NotoSerifTamil-Regular.ttf",
+        "2.003": "font/2.003/NotoSerifTamil-Regular.ttf",
+        default: "font/2.001/NotoSerifTamil-Regular.ttf",
+    }),
 }
 
 filegroup {

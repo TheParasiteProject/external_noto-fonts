@@ -45,11 +45,13 @@ license {
     ],
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoSansEthiopic-VF.ttf",
-    fontFile: "NotoSansEthiopic-Regular.ttf",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SANS_ETHIOPIC_VERSION",
-    defaultVersion: "2.000",
+    src: select(release_flag("RELEASE_PACKAGE_NOTO_SANS_ETHIOPIC_VERSION"), {
+        "2.000": "font/2.000/NotoSansEthiopic-Regular.ttf",
+        "2.102": "font/2.102/NotoSansEthiopic-Regular.ttf",
+        default: "font/2.000/NotoSansEthiopic-Regular.ttf",
+    }),
 }
 
 filegroup {

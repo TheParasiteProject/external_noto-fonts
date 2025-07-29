@@ -45,11 +45,13 @@ license {
     ],
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoSerifGurmukhi-VF.ttf",
-    fontFile: "NotoSerifGurmukhi-Regular.ttf",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SERIF_GURMUKHI_VERSION",
-    defaultVersion: "2.001",
+    src: select(release_flag("RELEASE_PACKAGE_NOTO_SERIF_GURMUKHI_VERSION"), {
+        "2.001": "font/2.001/NotoSerifGurmukhi-Regular.ttf",
+        "2.004": "font/2.004/NotoSerifGurmukhi-Regular.ttf",
+        default: "font/2.001/NotoSerifGurmukhi-Regular.ttf",
+    }),
 }
 
 filegroup {

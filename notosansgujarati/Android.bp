@@ -50,17 +50,22 @@ prebuilt_font {
     src: "font/1.030/NotoSansGujarati-Bold.ttf",
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoSansGujarati-Regular.ttf",
-    fontFile: "NotoSansGujarati.ttf",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SANS_GUJARATI_VERSION",
-    defaultVersion: "1.030",
+    src: select(release_flag("RELEASE_PACKAGE_NOTO_SANS_GUJARATI_VERSION"), {
+        "1.030": "font/1.030/NotoSansGujarati.ttf",
+        "2.106": "font/2.106/NotoSansGujarati.ttf",
+        default: "font/1.030/NotoSansGujarati.ttf",
+    }),
 }
 
-versioned_font_config {
+filegroup {
     name: "NotoSansGujarati",
-    defaultVersion: "1.030",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SANS_GUJARATI_VERSION",
+    srcs: select(release_flag("RELEASE_PACKAGE_NOTO_SANS_GUJARATI_VERSION"), {
+        "1.030": ["font/1.030/font_config.json"],
+        "2.106": ["font/2.106/font_config.json"],
+        default: ["font/1.030/font_config.json"],
+    }),
     required: [
         "NotoSansGujarati-Regular.ttf",
         "NotoSansGujarati-Bold.ttf",

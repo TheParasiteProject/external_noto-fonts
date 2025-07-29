@@ -45,11 +45,13 @@ license {
     ],
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoSerifMalayalam-VF.ttf",
-    fontFile: "NotoSerifMalayalam-Regular.ttf",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SERIF_MALAYALAM_VERSION",
-    defaultVersion: "2.001",
+    src: select(release_flag("RELEASE_PACKAGE_NOTO_SERIF_MALAYALAM_VERSION"), {
+        "2.001": "font/2.001/NotoSerifMalayalam-Regular.ttf",
+        "2.104": "font/2.104/NotoSerifMalayalam-Regular.ttf",
+        default: "font/2.001/NotoSerifMalayalam-Regular.ttf",
+    }),
 }
 
 filegroup {

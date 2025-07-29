@@ -50,18 +50,24 @@ prebuilt_font {
     src: "font/2.000/NotoSerifLao-Bold.ttf",
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoSerifLao-Regular.ttf",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SERIF_LAO_VERSION",
-    defaultVersion: "2.000",
+    src: select(release_flag("RELEASE_PACKAGE_NOTO_SERIF_LAO_VERSION"), {
+        "2.000": "font/2.000/NotoSerifLao-Regular.ttf",
+        "2.003": "font/2.003/NotoSerifLao-Regular.ttf",
+        default: "font/2.000/NotoSerifLao-Regular.ttf",
+    }),
 }
 
-versioned_font_config {
+filegroup {
     name: "NotoSerifLao",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SERIF_LAO_VERSION",
-    defaultVersion: "2.000",
     required: [
         "NotoSerifLao-Bold.ttf",
         "NotoSerifLao-Regular.ttf",
     ],
+    srcs: select(release_flag("RELEASE_PACKAGE_NOTO_SERIF_LAO_VERSION"), {
+        "2.000": ["font/2.000/font_config.json"],
+        "2.003": ["font/2.003/font_config.json"],
+        default: ["font/2.000/font_config.json"],
+    }),
 }
