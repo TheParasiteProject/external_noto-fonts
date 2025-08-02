@@ -66,7 +66,7 @@ filegroup {
         "notosansgeorgian/NotoSansGeorgian-VF.ttf",
         "notosansgujaratiui/NotoSansGujaratiUI-Regular.ttf",
         "notosansgurmukhiui/NotoSansGurmukhiUI-VF.ttf",
-        "notosanshebrew/1.04/NotoSansHebrew-Regular.ttf",
+        "notosanshebrew/font/1.040/NotoSansHebrew-Regular.ttf",
         "notosanskannadaui/NotoSansKannadaUI-VF.ttf",
         "notosanskhmerui/NotoSansKhmerUI-Regular.ttf",
         "notosanslaoui/NotoSansLaoUI-Regular.ttf",
@@ -246,21 +246,4 @@ filegroup {
         ":NotoSerifTibetan-VF",
         ":NotoSerifYezidi-VF",
     ],
-}
-
-bootstrap_go_package {
-    name: "soong-noto-fonts",
-    pkgPath: "android/soong/external/noto-fonts",
-    deps: [
-        "blueprint",
-        "blueprint-pathtools",
-        "soong",
-        "soong-android",
-        "soong-cc",
-        "soong-genrule",
-    ],
-    srcs: [
-        "noto-fonts.go",
-    ],
-    pluginFor: ["soong_build"],
 }

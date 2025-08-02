@@ -45,11 +45,13 @@ license {
     ],
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoSerifArmenian-VF.ttf",
-    fontFile: "NotoSerifArmenian-Regular.ttf",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SERIF_ARMENIAN_VERSION",
-    defaultVersion: "2.005",
+    src: select(release_flag("RELEASE_PACKAGE_NOTO_SERIF_ARMENIAN_VERSION"), {
+        "2.005": "font/2.005/NotoSerifArmenian-Regular.ttf",
+        "2.008": "font/2.008/NotoSerifArmenian-Regular.ttf",
+        default: "font/2.005/NotoSerifArmenian-Regular.ttf",
+    }),
 }
 
 filegroup {

@@ -50,19 +50,24 @@ prebuilt_font {
     src: "font/1.010/NotoSansOriya-Bold.ttf",
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoSansOriya-Regular.ttf",
-    fontFile: "NotoSansOriya.ttf",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SANS_ORIYA_VERSION",
-    defaultVersion: "1.010",
+    src: select(release_flag("RELEASE_PACKAGE_NOTO_SANS_ORIYA_VERSION"), {
+        "1.010": "font/1.010/NotoSansOriya.ttf",
+        "2.006": "font/2.006/NotoSansOriya.ttf",
+        default: "font/1.010/NotoSansOriya.ttf",
+    }),
 }
 
-versioned_font_config {
+filegroup {
     name: "NotoSansOriya",
-    defaultVersion: "1.010",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SANS_ORIYA_VERSION",
     required: [
         "NotoSansOriya-Bold.ttf",
         "NotoSansOriya-Regular.ttf",
     ],
+    srcs: select(release_flag("RELEASE_PACKAGE_NOTO_SANS_ORIYA_VERSION"), {
+        "1.010": ["font/1.010/font_config.json"],
+        "2.006": ["font/2.006/font_config.json"],
+        default: ["font/1.010/font_config.json"],
+    }),
 }

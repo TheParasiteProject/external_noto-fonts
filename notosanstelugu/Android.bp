@@ -45,11 +45,13 @@ license {
     ],
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoSansTelugu-VF.ttf",
-    fontFile: "NotoSansTelugu-Regular.ttf",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SANS_TELUGU_VERSION",
-    defaultVersion: "2.004",
+    src: select(release_flag("RELEASE_PACKAGE_NOTO_SANS_TELUGU_VERSION"), {
+        "2.004": "font/2.004/NotoSansTelugu-Regular.ttf",
+        "2.005": "font/2.005/NotoSansTelugu-Regular.ttf",
+        default: "font/2.004/NotoSansTelugu-Regular.ttf",
+    }),
 }
 
 filegroup {

@@ -45,11 +45,13 @@ license {
     ],
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoSerifGujarati-VF.ttf",
-    fontFile: "NotoSerifGujarati-Regular.ttf",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SERIF_GUJARATI_VERSION",
-    defaultVersion: "2.002",
+    src: select(release_flag("RELEASE_PACKAGE_NOTO_SERIF_GUJARATI_VERSION"), {
+        "2.002": "font/2.002/NotoSerifGujarati-Regular.ttf",
+        "2.106": "font/2.106/NotoSerifGujarati-Regular.ttf",
+        default: "font/2.002/NotoSerifGujarati-Regular.ttf",
+    }),
 }
 
 filegroup {

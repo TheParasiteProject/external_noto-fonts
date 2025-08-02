@@ -50,17 +50,22 @@ prebuilt_font {
     src: "font/1.070/NotoNaskhArabic-Bold.ttf",
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoNaskhArabic-Regular.ttf",
-    fontFile: "NotoNaskhArabic.ttf",
-    versionFlag: "RELEASE_PACKAGE_NOTO_NASKH_ARABIC_VERSION",
-    defaultVersion: "1.070",
+    src: select(release_flag("RELEASE_PACKAGE_NOTO_NASKH_ARABIC_VERSION"), {
+        "1.070": "font/1.070/NotoNaskhArabic.ttf",
+        "2.019": "font/2.019/NotoNaskhArabic.ttf",
+        default: "font/1.070/NotoNaskhArabic.ttf",
+    }),
 }
 
-versioned_font_config {
+filegroup {
     name: "NotoNaskhArabic",
-    defaultVersion: "1.070",
-    versionFlag: "RELEASE_PACKAGE_NOTO_NASKH_ARABIC_VERSION",
+    srcs: select(release_flag("RELEASE_PACKAGE_NOTO_NASKH_ARABIC_VERSION"), {
+        "1.070": ["font/1.070/font_config.json"],
+        "2.019": ["font/2.019/font_config.json"],
+        default: ["font/1.070/font_config.json"],
+    }),
     required: [
         "NotoNaskhArabic-Bold.ttf",
         "NotoNaskhArabic-Regular.ttf",

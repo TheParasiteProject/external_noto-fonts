@@ -46,24 +46,30 @@ license {
     ],
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoColorEmoji.ttf",
     dist: {
         targets: ["droidcore"],
     },
-    fontFile: "Noto-COLRv1-noflags.ttf",
-    versionFlag: "RELEASE_PACKAGE_EMOJI_FONT_VERSION",
-    defaultVersion: "2.047",
+    src: select(release_flag("RELEASE_PACKAGE_EMOJI_FONT_VERSION"), {
+        "2.042": "font/2.042/Noto-COLRv1-noflags.ttf",
+        "2.047": "font/2.047/Noto-COLRv1-noflags.ttf",
+        default: "font/2.047/Noto-COLRv1-noflags.ttf",
+    }),
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoColorEmojiFlags.ttf",
     dist: {
         targets: ["droidcore"],
     },
-    fontFile: "NotoColorEmoji-flagsonly.ttf",
-    versionFlag: "RELEASE_PACKAGE_FLAG_EMOJI_FONT_VERSION",
-    defaultVersion: "2.047",
+    src: select(release_flag("RELEASE_PACKAGE_FLAG_EMOJI_FONT_VERSION"), {
+        "2.034": "font/2.034/NotoColorEmoji-flagsonly.ttf",
+        "2.042": "font/2.042/NotoColorEmoji-flagsonly.ttf",
+        "2.047": "font/2.047/NotoColorEmoji-flagsonly.ttf",
+        "2.048": "font/2.048/NotoColorEmoji-flagsonly.ttf",
+        default: "font/2.047/NotoColorEmoji-flagsonly.ttf",
+    }),
 }
 
 prebuilt_font {

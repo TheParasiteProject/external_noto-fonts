@@ -45,19 +45,23 @@ license {
     ],
 }
 
-prebuilt_versioned_font {
+prebuilt_font {
     name: "NotoSansKhmer-VF.ttf",
-    versionDir: ".",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SANS_KHMER_VERSION",
-    defaultVersion: "1.901",
+    src: select(release_flag("RELEASE_PACKAGE_NOTO_SANS_KHMER_VERSION"), {
+        "1.901": "font/1.901/NotoSansKhmer-VF.ttf",
+        "2.004": "font/2.004/NotoSansKhmer-VF.ttf",
+        default: "font/1.901/NotoSansKhmer-VF.ttf",
+    }),
 }
 
-versioned_font_config {
+filegroup {
     name: "NotoSansKhmer-VF",
     required: [
-        "NotoSansKhmer-VF.ttf"
+        "NotoSansKhmer-VF.ttf",
     ],
-    versionDir: ".",
-    versionFlag: "RELEASE_PACKAGE_NOTO_SANS_KHMER_VERSION",
-    defaultVersion: "1.901",
+    srcs: select(release_flag("RELEASE_PACKAGE_NOTO_SANS_KHMER_VERSION"), {
+        "1.901": ["font/1.901/font_config.json"],
+        "2.004": ["font/2.004/font_config.json"],
+        default: ["font/1.901/font_config.json"],
+    }),
 }
